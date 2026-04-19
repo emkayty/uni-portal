@@ -74,13 +74,34 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'api.wsgi.application'
 
-# Database - Using SQLite for local development
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+# Database - Supports both SQLite (local) and Supabase (production)
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+DATABASE_URL = os.getenv('DATABASE_URL', '')
+
+if DATABASE_URL and 'supabase' in DATABASE_URL:
+    # Use Supabase PostgreSQL
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'postgres',
+            'USER': 'postgres.mspzofdentgahfbkusbc',
+            'PASSWORD': 'ssrNGXEIqvkKjaKj',
+            'HOST': 'aws-0-eu-west-1.pooler.supabase.com',
+            'PORT': '6543',
+            'OPTIONS': {'sslmode': 'require'},
+        }
     }
-}
+else:
+    # Default SQLite for local development
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
