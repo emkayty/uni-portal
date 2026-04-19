@@ -3,21 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "workspaces": [
-    "apps/*",
-    "packages/*"
+    "apps/web",
+    "apps/mobile"
   ],
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint",
-    "test": "turbo run test",
-    "typecheck": "turbo run typecheck"
-  },
-  "devDependencies": {
-    "turbo": "^2.0.0"
-  },
-  "engines": {
-    "node": ">=18.0.0"
-  },
-  "packageManager": "npm@10.0.0"
+    "dev:web": "cd apps/web && npm run dev",
+    "dev:mobile": "cd apps/mobile && npm start"
+  }
 }
