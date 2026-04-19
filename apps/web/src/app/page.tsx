@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { GraduationCap, Book, CreditCard, Calendar, BarChart3, Settings, Bell, Home, FileText, CheckCircle, AlertCircle, ArrowRight, User, LogOut, Menu, X, ChevronDown } from "lucide-react";
+import { GraduationCap, Book, CreditCard, Calendar, BarChart3, Settings, Bell, Home, FileText, CheckCircle, AlertCircle, ArrowRight, User, LogOut, Menu, X, ChevronDown, Users } from "lucide-react";
 
 interface Student {
   first_name: string;
@@ -117,9 +117,15 @@ export default function HomePage() {
     { label: "Courses", href: "/courses", icon: Book },
     { label: "Grades", href: "/grades", icon: FileText },
     { label: "Finance", href: "/finance", icon: CreditCard },
-    { label: "Library", href: "#", icon: Book },
-    { label: "Timetable", href: "#", icon: Calendar },
-    { label: "Settings", href: "#", icon: Settings },
+    { label: "Library", href: "/library", icon: Book },
+    { label: "Timetable", href: "/timetable", icon: Calendar },
+    { label: "Hostel", href: "/hostel", icon: Home },
+    { label: "Messages", href: "/messages", icon: Bell },
+    { label: "Profile", href: "/profile", icon: User },
+    { label: "Registration", href: "/registration", icon: FileText },
+    { label: "Attendance", href: "/attendance", icon: CheckCircle },
+    { label: "Staff", href: "/staff", icon: Users },
+    { label: "Research", href: "/research", icon: BarChart3 },
   ];
 
   return (
@@ -140,7 +146,7 @@ export default function HomePage() {
             <StatCard title="Credits" value="118" color="amber" />
           </div>
 
-          <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 mb-6">
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2 mb-6">
             {quickLinks.map((link) => (
               <Link key={link.label} href={link.href} className="flex flex-col items-center gap-1 p-3 bg-white rounded-xl border border-gray-100 hover:shadow-md transition-all">
                 <link.icon className="w-5 h-5 text-blue-600" />
