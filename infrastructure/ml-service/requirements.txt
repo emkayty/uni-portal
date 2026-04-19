@@ -1,0 +1,11 @@
+# ML Service Dependencies
+litestar==2.7.0
+uvicorn[standard]==0.32.0
+pydantic==2.9.0
+polars==1.17.0
+scikit-learn==1.6.0
+xgboost==2.1.0
+numpy==1.26.0
+sentence-transformers==0.7.0
+torch==2.5.0
+psycopg2-binary==2.9.10
