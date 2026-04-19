@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { GraduationCap, Book, CreditCard, Calendar, BarChart3, Settings, Bell, Home, FileText, CheckCircle, AlertCircle, ArrowRight, User, LogOut, Menu, X, ChevronDown, Users } from "lucide-react";
+import { GraduationCap, Book, CreditCard, Calendar, BarChart3, Settings, Bell, Home, FileText, CheckCircle, AlertCircle, ArrowRight, User, LogOut, Menu, X, ChevronDown, Users, Briefcase, Shield, Award } from "lucide-react";
 
 interface Student {
   first_name: string;
@@ -122,10 +122,16 @@ export default function HomePage() {
     { label: "Hostel", href: "/hostel", icon: Home },
     { label: "Messages", href: "/messages", icon: Bell },
     { label: "Profile", href: "/profile", icon: User },
-    { label: "Registration", href: "/registration", icon: FileText },
     { label: "Attendance", href: "/attendance", icon: CheckCircle },
-    { label: "Staff", href: "/staff", icon: Users },
+    { label: "Career", href: "/career", icon: Briefcase },
     { label: "Research", href: "/research", icon: BarChart3 },
+    { label: "Alumni", href: "/alumni", icon: Users },
+    { label: "Scholar.", href: "/scholarships", icon: Award },
+    { label: "Calendar", href: "/calendar", icon: Calendar },
+    { label: "Exams", href: "/exams", icon: FileText },
+    { label: "Graduation", href: "/graduation", icon: GraduationCap },
+    { label: "Settings", href: "/settings", icon: Settings },
+    { label: "Admin", href: "/admin", icon: Shield },
   ];
 
   return (
