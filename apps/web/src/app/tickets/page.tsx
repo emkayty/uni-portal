@@ -1,0 +1,2 @@
+"use client";import{useState}from"react";import{ Ticket, Plus }from"lucide-react";
+export default function TicketsPage(){return(<div className="min-h-screen bg-gray-50"><div className="bg-gradient-to-r from-amber-600 to-orange-600 text-white p-6"><h1 className="text-2xl font-bold">Tickets</h1></div><div className="p-4 max-w-7xl mx-auto"><button className="w-full py-3 bg-amber-600 text-white rounded-xl flex items-center justify-center gap-2"><Plus className="w-5 h-5"/>New Ticket</button></div></div>);}

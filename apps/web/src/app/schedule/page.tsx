@@ -1,0 +1,3 @@
+"use client";import{useState}from"react";import{ Clock, Calendar }from"lucide-react";
+const schedule=[{day:"Monday",time:"8:00-10:00",course:"CSC401"},{day:"Monday",time:"10:00-12:00",course:"CSC402"},{day:"Tuesday",time:"8:00-10:00",course:"CSC403"}];
+export default function SchedulePage(){return(<div className="min-h-screen bg-gray-50"><div className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white p-6"><h1 className="text-2xl font-bold">Schedule</h1></div><div className="p-4 max-w-7xl mx-auto"><div className="space-y-3">{schedule.map((s,i)=>(<div key={i}className="bg-white rounded-xl p-4 border border-gray-100"><p className="font-medium">{s.day} - {s.time}</p><p className="text-sm text-blue-600">{s.course}</p></div>))}</div></div></div>);}

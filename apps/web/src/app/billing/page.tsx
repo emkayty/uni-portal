@@ -1,0 +1,3 @@
+"use client";import{useState}from"react";import{ Receipt, CreditCard }from"lucide-react";
+const bills=[{id:1,period:"Jan 2024",amount:250000,status:"paid"},{id:2,period:"Feb 2024",amount:250000,status:"pending"}];
+export default function BillingPage(){return(<div className="min-h-screen bg-gray-50"><div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-6"><h1 className="text-2xl font-bold">Billing</h1></div><div className="p-4 max-w-7xl mx-auto"><div className="space-y-3">{bills.map(b=>(<div key={b.id}className="bg-white rounded-xl p-4 border border-gray-100"><p className="font-medium">{b.period}</p><p className="text-xl font-bold">₦{b.amount.toLocaleString()}</p></div>))}</div></div></div>);}
