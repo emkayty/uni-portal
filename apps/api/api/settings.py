@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'dev-secret-key-change-in-production')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'True').lower() == 'true'
+DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
 
 ALLOWED_HOSTS = ['*']
 
@@ -85,8 +85,8 @@ if DATABASE_URL and 'supabase' in DATABASE_URL:
     # Use Supabase PostgreSQL
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'postgres',
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': 'db.sqlite3',
             'USER': 'postgres.mspzofdentgahfbkusbc',
             'PASSWORD': 'ssrNGXEIqvkKjaKj',
             'HOST': 'aws-0-eu-west-1.pooler.supabase.com',
