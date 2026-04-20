@@ -1,4 +1,4 @@
-"use client";import{useState}from"react";import{ Briefcase, MapPin, DollarSign, Clock, Search, Filter, Plus }from"lucide-react";
+"use client"; import{useState}from"react"; import{ Briefcase, MapPin, DollarSign, Clock, Search, Filter, Plus }from"lucide-react";
 const jobs=[{id:1,title:"Software Engineer",company:"Google",location:"Remote",salary:"₦500,000",type:"Full-time",posted:"2 days ago"},{id:2,title:"Data Analyst",company:"Shell",location:"Lagos",salary:"₦350,000",type:"Contract",posted:"5 days ago"},{id:3,title:"Web Developer",company:"Flutterwave",location:"Remote",salary:"₦400,000",type:"Full-time",posted:"1 week ago"}];
 export default function CareerPage(){const[search,setSearch]=useState("");const[tab,setTab]=useState("jobs");
 return(<div className="min-h-screen bg-gray-50"><div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-6"><h1 className="text-2xl font-bold">Career Services</h1><p className="text-blue-100">Jobs & placement opportunities</p></div>

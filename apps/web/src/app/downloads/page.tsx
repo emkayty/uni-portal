@@ -1,4 +1,4 @@
-"use client";import{useState}from"react";import{ Download, FileText, File, Image, Video, Clock, CheckCircle }from"lucide-react";
+"use client"; import{useState}from"react"; import{ Download, FileText, File, Image, Video, Clock, CheckCircle }from"lucide-react";
 const downloads=[{id:1,name:"Student Handbook",type:"PDF",size:"2.5 MB",date:"2024-01-15",downloaded:true},{id:2,name:"Academic Calendar",type:"PDF",size:"1.2 MB",date:"2024-01-10",downloaded:true},{id:3,name:"Exam Guidelines",type:"PDF",size:"500 KB",date:"2024-01-05",downloaded:false},{id:4,name:"Course Outline - CSC401",type:"PDF",size:"800 KB",date:"2024-01-02",downloaded:false},{id:5,name:"Video Tutorial",type:"MP4",size:"150 MB",date:"2024-01-01",downloaded:false}];
 const icons:{[key:string]:React.ReactNode}={PDF:<FileText className="w-5 h-5 text-red-500"/>,MP4:<Video className="w-5 h-5 text-blue-500"/>,default:<File className="w-5 h-5 text-gray-500"/>};
 export default function DownloadsPage(){const[tab,setTab]=useState("all");

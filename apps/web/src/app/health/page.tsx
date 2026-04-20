@@ -1,4 +1,4 @@
-"use client";import{useState}from"react";import{ Heart, Activity, Pill, AlertCircle, Clock }from"lucide-react";
+"use client"; import{useState}from"react"; import{ Heart, Activity, Pill, AlertCircle, Clock }from"lucide-react";
 const records=[{id:1,type:"Checkup",date:"2024-01-10",status:"completed"},{id:2,type:"Dental",date:"2024-02-20",status:"scheduled"},{id:3,type:"Eye Test",date:"2024-03-15",status:"scheduled"}];
 export default function HealthPage(){const[tab,setTab]=useState("records");
 return(<div className="min-h-screen bg-gray-50"><div className="bg-gradient-to-r from-green-600 to-teal-600 text-white p-6"><h1 className="text-2xl font-bold">Health Services</h1><p className="text-green-100">Medical & wellness services</p></div>

@@ -1,0 +1,16 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[9656],{244:function(e,t,n){Promise.resolve().then(n.bind(n,2139))},2139:function(e,t,n){"use strict";n.r(t),n.d(t,{default:function(){return i}});var s=n(7573),r=n(5138);/**
+ * @license lucide-react v0.300.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */let a=(0,n(3803).Z)("XCircle",[["circle",{cx:"12",cy:"12",r:"10",key:"1mglay"}],["path",{d:"m15 9-6 6",key:"1uzhvr"}],["path",{d:"m9 9 6 6",key:"z0biqf"}]]),c=[{name:"JAMB CAPS",status:"connected",type:"admission"},{name:"Remita",status:"connected",type:"payments"},{name:"Paystack",status:"connected",type:"payments"},{name:"Blackboard",status:"connected",type:"LMS"},{name:"Koha",status:"connected",type:"library"},{name:"Flutterwave",status:"disconnected",type:"payments"}];function i(){return(0,s.jsxs)("div",{className:"min-h-screen bg-gray-50",children:[(0,s.jsxs)("div",{className:"bg-gradient-to-r from-purple-600 to-pink-600 text-white p-6",children:[(0,s.jsx)("h1",{className:"text-2xl font-bold",children:"Integrations"}),(0,s.jsx)("p",{className:"text-purple-100",children:"Third-party connections"})]}),(0,s.jsx)("div",{className:"p-4 max-w-7xl mx-auto",children:(0,s.jsx)("div",{className:"grid grid-cols-1 sm:grid-cols-2 gap-4",children:c.map(e=>(0,s.jsxs)("div",{className:"bg-white rounded-xl p-4 border border-gray-100",children:[(0,s.jsxs)("div",{className:"flex justify-between",children:[(0,s.jsx)("p",{className:"font-medium",children:e.name}),"connected"===e.status?(0,s.jsx)(r.Z,{className:"w-5 h-5 text-green-500"}):(0,s.jsx)(a,{className:"w-5 h-5 text-red-500"})]}),(0,s.jsx)("p",{className:"text-sm text-gray-500 capitalize",children:e.type})]},e.name))})})]})}},3803:function(e,t,n){"use strict";n.d(t,{Z:function(){return c}});var s=n(7653),r={xmlns:"http://www.w3.org/2000/svg",width:24,height:24,viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:2,strokeLinecap:"round",strokeLinejoin:"round"};/**
+ * @license lucide-react v0.300.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */let a=e=>e.replace(/([a-z0-9])([A-Z])/g,"$1-$2").toLowerCase().trim(),c=(e,t)=>{let n=(0,s.forwardRef)((n,c)=>{let{color:i="currentColor",size:l=24,strokeWidth:o=2,absoluteStrokeWidth:d,className:m="",children:u,...p}=n;return(0,s.createElement)("svg",{ref:c,...r,width:l,height:l,stroke:i,strokeWidth:d?24*Number(o)/Number(l):o,className:["lucide","lucide-".concat(a(e)),m].join(" "),...p},[...t.map(e=>{let[t,n]=e;return(0,s.createElement)(t,n)}),...Array.isArray(u)?u:[u]])});return n.displayName="".concat(e),n}},5138:function(e,t,n){"use strict";n.d(t,{Z:function(){return s}});/**
+ * @license lucide-react v0.300.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */let s=(0,n(3803).Z)("CheckCircle",[["path",{d:"M22 11.08V12a10 10 0 1 1-5.93-9.14",key:"g774vq"}],["path",{d:"m9 11 3 3L22 4",key:"1pflzl"}]])}},function(e){e.O(0,[1293,286,1744],function(){return e(e.s=244)}),_N_E=e.O()}]);

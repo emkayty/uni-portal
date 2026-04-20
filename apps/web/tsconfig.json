@@ -19,11 +19,7 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"],
-      "@university/ui": ["../../packages/ui/src"],
-      "@university/ui/*": ["../../packages/ui/src/*"],
-      "@university/api-client": ["../../packages/api-client/src"],
-      "@university/api-client/*": ["../../packages/api-client/src/*"]
+      "@/*": ["./src/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

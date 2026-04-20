@@ -1,4 +1,4 @@
-"use client";import{useState}from"react";import{ Users, Search, MapPin, Briefcase, GraduationCap }from"lucide-react";
+"use client"; import{useState}from"react"; import{ Users, Search, MapPin, Briefcase, GraduationCap }from"lucide-react";
 const alumni=[{name:"Chioma Adeyemi",year:2020,company:"Google",position:"Software Engineer"},{name:"Emeka Okonkwo",year:2019,company:"Shell",position:"Data Scientist"},{name:"Adaeze Nwosu",year:2018,company:"Flutterwave",position:"Tech Lead"}];
 export default function AlumniPage(){const[tab,setTab]=useState("directory");
 return(<div className="min-h-screen bg-gray-50"><div className="bg-gradient-to-r from-slate-600 to-zinc-600 text-white p-6"><h1 className="text-2xl font-bold">Alumni Network</h1><p className="text-slate-100">Connect with graduates</p></div>

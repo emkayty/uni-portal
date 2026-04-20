@@ -1,0 +1,11 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[2988],{8092:function(e,t,r){Promise.resolve().then(r.bind(r,4564))},4564:function(e,t,r){"use strict";r.r(t),r.d(t,{default:function(){return i}});var n=r(7573),s=r(9135);function i(){return(0,n.jsxs)("div",{className:"min-h-screen bg-gray-50",children:[(0,n.jsx)("div",{className:"bg-gradient-to-r from-amber-600 to-orange-600 text-white p-6",children:(0,n.jsx)("h1",{className:"text-2xl font-bold",children:"Tickets"})}),(0,n.jsx)("div",{className:"p-4 max-w-7xl mx-auto",children:(0,n.jsxs)("button",{className:"w-full py-3 bg-amber-600 text-white rounded-xl flex items-center justify-center gap-2",children:[(0,n.jsx)(s.Z,{className:"w-5 h-5"}),"New Ticket"]})})]})}},3803:function(e,t,r){"use strict";r.d(t,{Z:function(){return a}});var n=r(7653),s={xmlns:"http://www.w3.org/2000/svg",width:24,height:24,viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:2,strokeLinecap:"round",strokeLinejoin:"round"};/**
+ * @license lucide-react v0.300.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */let i=e=>e.replace(/([a-z0-9])([A-Z])/g,"$1-$2").toLowerCase().trim(),a=(e,t)=>{let r=(0,n.forwardRef)((r,a)=>{let{color:c="currentColor",size:o=24,strokeWidth:l=2,absoluteStrokeWidth:u,className:d="",children:h,...m}=r;return(0,n.createElement)("svg",{ref:a,...s,width:o,height:o,stroke:c,strokeWidth:u?24*Number(l)/Number(o):l,className:["lucide","lucide-".concat(i(e)),d].join(" "),...m},[...t.map(e=>{let[t,r]=e;return(0,n.createElement)(t,r)}),...Array.isArray(h)?h:[h]])});return r.displayName="".concat(e),r}},9135:function(e,t,r){"use strict";r.d(t,{Z:function(){return n}});/**
+ * @license lucide-react v0.300.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */let n=(0,r(3803).Z)("Plus",[["path",{d:"M5 12h14",key:"1ays0h"}],["path",{d:"M12 5v14",key:"s699le"}]])}},function(e){e.O(0,[1293,286,1744],function(){return e(e.s=8092)}),_N_E=e.O()}]);

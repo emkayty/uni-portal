@@ -1,4 +1,4 @@
-"use client";import{useState}from"react";import{ Bell, Mail, MessageSquare, CheckCircle, AlertCircle, Trash2, Filter, Search }from"lucide-react";
+"use client"; import{useState}from"react"; import{ Bell, Mail, MessageSquare, CheckCircle, AlertCircle, Trash2, Filter, Search }from"lucide-react";
 const notifications=[{id:1,title:"Course Registration",message:"Registration opens tomorrow at 8:00 AM",type:"info",time:"2 hours ago",read:false},{id:2,title:"Fee Payment Due",message:"Payment deadline in 5 days",type:"warning",time:"5 hours ago",read:false},{id:3,title:"Exam Timetable",message:"Final exam timetable published",type:"success",time:"1 day ago",read:true},{id:4,title:"Library Notice",message:"Library closing time changed",type:"info",time:"2 days ago",read:true}];
 export default function NotificationsPage(){const[filter,setFilter]=useState("all");const[filters,setFilters]=useState(notifications);
 return(<div className="min-h-screen bg-gray-50"><div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-6"><h1 className="text-2xl font-bold">Notifications</h1><p className="text-blue-100">{filters.filter(n=>!n.read).length} unread</p></div>

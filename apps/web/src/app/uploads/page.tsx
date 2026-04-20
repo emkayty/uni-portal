@@ -1,4 +1,4 @@
-"use client";import{useState}from"react";import{ Upload, File, Image, X, CheckCircle, AlertCircle }from"lucide-react";
+"use client"; import{useState}from"react"; import{ Upload, File, Image, X, CheckCircle, AlertCircle }from"lucide-react";
 const uploads=[{id:1,name:"Passport Photo",status:"verified",size:"200 KB"},{id:2,name:"Birth Certificate",status:"pending",size:"500 KB"},{id:3,name:"JAMB Result",status:"verified",size:"300 KB"}];
 export default function UploadsPage(){const[tab,setTab]=useState("documents");
 return(<div className="min-h-screen bg-gray-50"><div className="bg-gradient-to-r from-green-600 to-teal-600 text-white p-6"><h1 className="text-2xl font-bold">Uploads</h1><p className="text-green-100">Document management</p></div>

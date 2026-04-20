@@ -1,4 +1,4 @@
-"use client";import{useState}from"react";import{ MessageCircle, Send, Bot, User, Sparkles }from"lucide-react";
+"use client"; import{useState}from"react"; import{ MessageCircle, Send, Bot, User, Sparkles }from"lucide-react";
 const suggestions=["How do I register courses?","What is my GPA?","When are exams?","How do I pay fees?"];
 const messages=[{id:1,role:"assistant",content:"Hello! I'm your virtual advisor. How can I help you today?",time:"10:00 AM"}];
 export default function ChatbotPage(){const[input,setInput]=useState("");const[msgs,setMsgs]=useState(messages);

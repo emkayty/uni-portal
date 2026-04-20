@@ -1,4 +1,4 @@
-"use client";import{useState}from"react";import{ Award, Download, QrCode, Share2, CheckCircle }from"lucide-react";
+"use client"; import{useState}from"react"; import{ Award, Download, QrCode, Share2, CheckCircle }from"lucide-react";
 const certificates=[{id:1,title:"Bachelor of Science",year:2024,status:"issued",verified:true},{id:2,title:"Transcript",year:2024,status:"issued",verified:true}];
 export default function CertificatesPage(){const[tab,setTab]=useState("certificates");
 return(<div className="min-h-screen bg-gray-50"><div className="bg-gradient-to-r from-amber-600 to-yellow-600 text-white p-6"><h1 className="text-2xl font-bold">Certificates</h1><p className="text-amber-100">Digital credentials</p></div>

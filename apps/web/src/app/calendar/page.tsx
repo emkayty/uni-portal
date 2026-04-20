@@ -1,4 +1,4 @@
-"use client";import{useState}from"react";import{ Calendar as CalendarIcon, ChevronLeft, ChevronRight, Clock, MapPin }from"lucide-react";
+"use client"; import{useState}from"react"; import{ Calendar as CalendarIcon, ChevronLeft, ChevronRight, Clock, MapPin }from"lucide-react";
 const events=[{id:1,title:"Mid-semester Exam",date:"2024-02-15",time:"9:00 AM",venue:"Exam Hall A"},{id:2,title:"Course Registration Deadline",date:"2024-02-20",time:"11:59 PM",venue:"Online"},{id:3,title:"Guest Lecture",date:"2024-02-22",time:"2:00 PM",venue:"Room 101"}];
 export default function CalendarPage(){const[month,setMonth]=useState("February 2024");
 return(<div className="min-h-screen bg-gray-50"><div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-6"><h1 className="text-2xl font-bold">Calendar</h1><p className="text-blue-100">Events & important dates</p></div>

@@ -1,4 +1,4 @@
-"use client";import{useState}from"react";import{ Users, Book, DollarSign, BarChart3, Settings, Shield }from"lucide-react";
+"use client"; import{useState}from"react"; import{ Users, Book, DollarSign, BarChart3, Settings, Shield }from"lucide-react";
 const stats={students:1250,staff:85,courses:120,revenue:"₦50M"};
 const recent=[{type:"student",action:"New admission",details:"CSC/2024/001",time:"2 hours ago"},{type:"payment",action:"Fee payment",details:"₦150,000",time:"5 hours ago"},{type:"course",action:"New course registered",details:"CSC405",time:"1 day ago"}];
 export default function AdminPage(){const[tab,setTab]=useState("dashboard");

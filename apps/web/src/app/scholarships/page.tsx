@@ -1,4 +1,4 @@
-"use client";import{useState}from"react";import{ Award, DollarSign, Calendar, CheckCircle }from"lucide-react";
+"use client"; import{useState}from"react"; import{ Award, DollarSign, Calendar, CheckCircle }from"lucide-react";
 const scholarships=[{id:1,name:"TETFund Scholarship",amount:150000,deadline:"2024-03-01",eligible:true,status:"available"},{id:2,name:"Vice Chancellor Scholarship",amount:100000,deadline:"2024-03-15",eligible:true,status:"available"},{id:3,name:"External Grant",amount:50000,deadline:"2024-02-28",eligible:false,status:"closed"}];
 export default function ScholarshipsPage(){const[tab,setTab]=useState("available");
 return(<div className="min-h-screen bg-gray-50"><div className="bg-gradient-to-r from-amber-600 to-orange-600 text-white p-6"><h1 className="text-2xl font-bold">Scholarships</h1><p className="text-amber-100">Financial aid opportunities</p></div>

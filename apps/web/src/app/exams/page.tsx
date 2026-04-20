@@ -1,4 +1,4 @@
-"use client";import{useState}from"react";import{ FileText, Clock, MapPin, AlertCircle }from"lucide-react";
+"use client"; import{useState}from"react"; import{ FileText, Clock, MapPin, AlertCircle }from"lucide-react";
 const exams=[{id:1,course:"CSC401",title:"Artificial Intelligence",date:"2024-02-15",time:"9:00 AM",venue:"Exam Hall A",duration:2},{id:2,course:"CSC402",title:"Software Engineering",date:"2024-02-16",time:"9:00 AM",venue:"Room 101",duration:2},{id:3,course:"CSC403",title:"Computer Networks",date:"2024-02-17",time:"9:00 AM",venue:"Lab 1",duration:2}];
 export default function ExamsPage(){const[tab,setTab]=useState("schedule");
 return(<div className="min-h-screen bg-gray-50"><div className="bg-gradient-to-r from-red-600 to-orange-600 text-white p-6"><h1 className="text-2xl font-bold">Examinations</h1><p className="text-red-100">Exam timetable & guidelines</p></div>
