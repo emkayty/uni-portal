@@ -1101,3 +1101,66 @@ def accessibility_features(request):
 def optimize_timetable(request, semester: str = None):
     """Optimize timetable"""
     return {"conflicts_resolved": 15, "rooms_utilized": 85, "success": True}
+
+
+# ============= NEW MODULE IMPORTS =============
+# Import and include routes from new modules
+try:
+    from lms.api import router as lms_router
+    api.add_router("/lms", lms_router)
+except Exception as e:
+    print(f"LMS import error: {e}")
+
+try:
+    from appeals.api import router as appeals_router
+    api.add_router("/appeals", appeals_router)
+except Exception as e:
+    print(f"Appeals import error: {e}")
+
+try:
+    from credentials.api import router as credentials_router
+    api.add_router("/credentials", credentials_router)
+except Exception as e:
+    print(f"Credentials import error: {e}")
+
+try:
+    from careers.api import router as careers_router
+    api.add_router("/careers", careers_router)
+except Exception as e:
+    print(f"Careers import error: {e}")
+
+try:
+    from alumni.api import router as alumni_router
+    api.add_router("/alumni", alumni_router)
+except Exception as e:
+    print(f"Alumni import error: {e}")
+
+try:
+    from whatsapp.api import router as whatsapp_router
+    api.add_router("/whatsapp", whatsapp_router)
+except Exception as e:
+    print(f"WhatsApp import error: {e}")
+
+try:
+    from ussd.api import router as ussd_router
+    api.add_router("/ussd", ussd_router)
+except Exception as e:
+    print(f"USSD import error: {e}")
+
+try:
+    from library.api import router as library_router
+    api.add_router("/library", library_router)
+except Exception as e:
+    print(f"Library import error: {e}")
+
+try:
+    from exam.api import router as exam_router
+    api.add_router("/exam", exam_router)
+except Exception as e:
+    print(f"Exam import error: {e}")
+
+try:
+    from siwes.api import router as siwes_router
+    api.add_router("/siwes", siwes_router)
+except Exception as e:
+    print(f"SIWES import error: {e}")

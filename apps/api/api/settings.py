@@ -37,6 +37,18 @@ INSTALLED_APPS = [
     'finance',
     'admission',
     'messaging',
+    
+    # New Critical Features (from Blueprint)
+    'lms',           # LMS Integration
+    'appeals',       # Grade Appeal Workflow
+    'credentials',  # Digital Credentials
+    'careers',       # Career Services
+    'alumni',       # Alumni Network
+    'whatsapp',     # WhatsApp Integration
+    'ussd',         # USSD Channel
+    'library',      # Library Integration
+    'exam',         # Exam Venue Management
+    'siwes',        # SIWES Integration
 ]
 
 # CORS - must be before CommonMiddleware
