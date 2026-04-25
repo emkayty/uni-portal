@@ -554,6 +554,80 @@ def get_all_permissions(request):
         "common_resources": ["courses", "grades", "students", "finance", "reports", "library", "exam", "siwes", "alumni", "attendance", "timetable"]
     }
 
+
+# ============= STANDARD SYSTEM CONSTANTS =============
+@api.get("/standards")
+def get_standards(request):
+    """Get all system standards and constants"""
+    from constants import (
+        NIGERIAN_STATES, NIGERIAN_COUNTRIES, GRADING_SCALE, 
+        DEGREE_CLASSIFICATIONS, COURSE_WEIGHTS, ACADEMIC_LEVELS,
+        SEMESTERS, BLOOD_GROUPS, GENOTYPES, RELIGIONS,
+        MARITAL_STATUSES, NIGERIAN_PAYMENT_METHODS
+    )
+    from enums import (
+        Gender, Nationality, MaritalStatus, AcademicStatus,
+        SemesterType, CourseType, CourseStatus,
+        PaymentStatus, InvoiceStatus,
+        ExamStatus, AttendanceStatus,
+        get_status_choices
+    )
+    
+    return {
+        "grading_scale": GRADING_SCALE,
+        "degree_classifications": DEGREE_CLASSIFICATIONS,
+        "course_weights": COURSE_WEIGHTS,
+        "academic_levels": ACADEMIC_LEVELS,
+        "semesters": SEMESTERS,
+        "blood_groups": BLOOD_GROUPS,
+        "genotypes": GENOTYPES,
+        "religions": RELIGIONS,
+        "marital_statuses": MARITAL_STATUSES,
+        "payment_methods": NIGERIAN_PAYMENT_METHODS,
+        "enums": {
+            "genders": get_status_choices(Gender),
+            "nationalities": get_status_choices(Nationality),
+            "marital_statuses": get_status_choices(MaritalStatus),
+            "semester_types": get_status_choices(SemesterType),
+            "course_types": get_status_choices(CourseType),
+            "course_statuses": get_status_choices(CourseStatus),
+            "payment_statuses": get_status_choices(PaymentStatus),
+            "invoice_statuses": get_status_choices(InvoiceStatus),
+            "exam_statuses": get_status_choices(ExamStatus),
+            "attendance_statuses": get_status_choices(AttendanceStatus),
+            "academic_statuses": get_status_choices(AcademicStatus),
+        }
+    }
+
+
+@api.get("/standards/states")
+def get_all_states(request):
+    """Get all Nigerian states"""
+    from constants import NIGERIAN_STATES, NIGERIAN_LGAS
+    return {
+        "states": [{"id": i+1, "name": s, "code": s[:3].upper()} for i, s in enumerate(NIGERIAN_STATES)],
+        "lgas": NIGERIAN_LGAS,
+        "total_states": len(NIGERIAN_STATES)
+    }
+
+
+@api.get("/standards/universities")
+def get_nigerian_universities(request):
+    """Get Nigerian universities registry"""
+    from constants import NIGERIAN_UNIVERSITIES
+    return {
+        "universities": [
+            {
+                "code": code,
+                "name": data["name"],
+                "state": data["state"],
+                "year": data["year"],
+                "type": data["type"]
+            }
+            for code, data in NIGERIAN_UNIVERSITIES.items()
+        ]
+    }
+
 # ============= MULTI-FACTOR AUTHENTICATION (MFA) =============
 MFA_CODES = {}
 
