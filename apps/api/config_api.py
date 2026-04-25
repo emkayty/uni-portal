@@ -1150,6 +1150,9 @@ def optimize_timetable(request, semester: str = None):
 
 # ============= NEW MODULE IMPORTS =============
 # Import and include routes from new modules
+# Note: academic, finance, admission already registered in urls.py
+
+# LMS (Learning Management System)
 try:
     from lms.api import router as lms_router
     api.add_router("/lms", lms_router)
