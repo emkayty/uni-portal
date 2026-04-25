@@ -1,0 +1,21 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[6519],{2879:function(e,t,s){Promise.resolve().then(s.bind(s,4765))},4765:function(e,t,s){"use strict";s.r(t),s.d(t,{default:function(){return d}});var a=s(7573),n=s(3100),r=s(1871),i=s(4990);let c=[{id:1,name:"Computer Science",code:"CSC",staff:15,students:350},{id:2,name:"Information Systems",code:"INF",staff:10,students:200},{id:3,name:"Software Engineering",code:"SWE",staff:8,students:150}];function d(){return(0,a.jsxs)("div",{className:"min-h-screen bg-gray-50",children:[(0,a.jsxs)("div",{className:"bg-gradient-to-r from-slate-600 to-zinc-600 text-white p-6",children:[(0,a.jsx)("h1",{className:"text-2xl font-bold",children:"Departments"}),(0,a.jsx)("p",{className:"text-slate-100",children:"Academic departments"})]}),(0,a.jsx)("div",{className:"p-4 max-w-7xl mx-auto",children:(0,a.jsx)("div",{className:"grid grid-cols-1 sm:grid-cols-2 gap-4",children:c.map(e=>(0,a.jsxs)("div",{className:"bg-white rounded-xl p-4 border border-gray-100",children:[(0,a.jsxs)("div",{className:"flex items-center gap-3 mb-3",children:[(0,a.jsx)(n.Z,{className:"w-8 h-8 text-blue-600"}),(0,a.jsxs)("div",{children:[(0,a.jsx)("p",{className:"font-medium",children:e.name}),(0,a.jsx)("p",{className:"text-sm text-gray-500",children:e.code})]})]}),(0,a.jsxs)("div",{className:"flex gap-4 text-sm",children:[(0,a.jsxs)("span",{className:"flex items-center gap-1",children:[(0,a.jsx)(r.Z,{className:"w-4 h-4"}),e.staff," staff"]}),(0,a.jsxs)("span",{className:"flex items-center gap-1",children:[(0,a.jsx)(i.Z,{className:"w-4 h-4"}),e.students," students"]})]})]},e.id))})})]})}},3803:function(e,t,s){"use strict";s.d(t,{Z:function(){return i}});var a=s(7653),n={xmlns:"http://www.w3.org/2000/svg",width:24,height:24,viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:2,strokeLinecap:"round",strokeLinejoin:"round"};/**
+ * @license lucide-react v0.300.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */let r=e=>e.replace(/([a-z0-9])([A-Z])/g,"$1-$2").toLowerCase().trim(),i=(e,t)=>{let s=(0,a.forwardRef)((s,i)=>{let{color:c="currentColor",size:d=24,strokeWidth:l=2,absoluteStrokeWidth:o,className:u="",children:h,...m}=s;return(0,a.createElement)("svg",{ref:i,...n,width:d,height:d,stroke:c,strokeWidth:o?24*Number(l)/Number(d):l,className:["lucide","lucide-".concat(r(e)),u].join(" "),...m},[...t.map(e=>{let[t,s]=e;return(0,a.createElement)(t,s)}),...Array.isArray(h)?h:[h]])});return s.displayName="".concat(e),s}},4990:function(e,t,s){"use strict";s.d(t,{Z:function(){return a}});/**
+ * @license lucide-react v0.300.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */let a=(0,s(3803).Z)("Book",[["path",{d:"M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20",key:"t4utmx"}]])},3100:function(e,t,s){"use strict";s.d(t,{Z:function(){return a}});/**
+ * @license lucide-react v0.300.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */let a=(0,s(3803).Z)("Building2",[["path",{d:"M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z",key:"1b4qmf"}],["path",{d:"M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2",key:"i71pzd"}],["path",{d:"M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2",key:"10jefs"}],["path",{d:"M10 6h4",key:"1itunk"}],["path",{d:"M10 10h4",key:"tcdvrf"}],["path",{d:"M10 14h4",key:"kelpxr"}],["path",{d:"M10 18h4",key:"1ulq68"}]])},1871:function(e,t,s){"use strict";s.d(t,{Z:function(){return a}});/**
+ * @license lucide-react v0.300.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */let a=(0,s(3803).Z)("Users",[["path",{d:"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2",key:"1yyitq"}],["circle",{cx:"9",cy:"7",r:"4",key:"nufk8"}],["path",{d:"M22 21v-2a4 4 0 0 0-3-3.87",key:"kshegd"}],["path",{d:"M16 3.13a4 4 0 0 1 0 7.75",key:"1da9ce"}]])}},function(e){e.O(0,[1293,286,1744],function(){return e(e.s=2879)}),_N_E=e.O()}]);
