@@ -488,8 +488,71 @@ def get_profile_options(request):
 
 @api.get("/auth/permissions/{role}")
 def get_permissions(request, role: str):
-    """Get permissions for a role"""
-    return {"role": role, "permissions": ROLE_PERMISSIONS.get(role, [])}
+    """Get detailed permissions for a role with CRUD breakdown"""
+    perms = ROLE_PERMISSIONS.get(role, [])
+    
+    # Build detailed permissions
+    detailed = {}
+    for perm in perms:
+        if perm == "*":
+            detailed["admin"] = {"read": True, "write": True, "add": True, "edit": True, "delete": True}
+            continue
+        
+        parts = perm.split(":")
+        resource = parts[0]
+        action = parts[1] if len(parts) > 1 else "read"
+        
+        if resource not in detailed:
+            detailed[resource] = {"read": False, "write": False, "add": False, "edit": False, "delete": False}
+        
+        if "read" in action:
+            detailed[resource]["read"] = True
+        if "write" in action:
+            detailed[resource]["write"] = True
+        if "add" in action:
+            detailed[resource]["add"] = True
+        if "edit" in action:
+            detailed[resource]["edit"] = True
+        if "delete" in action:
+            detailed[resource]["delete"] = True
+    
+    # Build capability lists
+    can_read_list = [p.split(":")[0] for p in perms if ":read" in p]
+    can_write_list = [p.split(":")[0] for p in perms if ":write" in p and "delete" not in p]
+    can_add_list = [p.split(":")[0] for p in perms if "add" in p]
+    can_edit_list = [p.split(":")[0] for p in perms if "edit" in p]
+    can_delete_list = [p.split(":")[0] for p in perms if "delete" in p]
+    
+    return {
+        "role": role,
+        "raw_permissions": perms,
+        "is_admin": "*" in perms,
+        "detailed": detailed,
+        "capabilities": {
+            "can_read": can_read_list,
+            "can_write": can_write_list,
+            "can_add": can_add_list,
+            "can_edit": can_edit_list,
+            "can_delete": can_delete_list,
+        }
+    }
+
+
+@api.get("/auth/permissions")
+def get_all_permissions(request):
+    """Get all roles and their permissions"""
+    return {
+        "roles": [
+            {
+                "role": role,
+                "permissions": perms,
+                "is_admin": "*" in perms,
+                "permissions_count": len(perms)
+            }
+            for role, perms in ROLE_PERMISSIONS.items()
+        ],
+        "common_resources": ["courses", "grades", "students", "finance", "reports", "library", "exam", "siwes", "alumni", "attendance", "timetable"]
+    }
 
 # ============= MULTI-FACTOR AUTHENTICATION (MFA) =============
 MFA_CODES = {}

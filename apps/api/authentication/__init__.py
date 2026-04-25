@@ -232,20 +232,132 @@ def decode_token(token: str) -> Optional[dict]:
 
 
 # ============= PERMISSIONS =============
+# Comprehensive CRUD permissions for university portal
 ROLE_PERMISSIONS = {
+    # Super Admin - full access
     "admin": ["*"],
-    "student": ["courses:read", "grades:read", "finance:read", "profile:write", "enroll:write"],
-    "lecturer": ["courses:read", "grades:write", "attendance:write", "timetable:read"],
-    "finance_officer": ["finance:read", "finance:write", "students:read"],
-    "dean": ["courses:read", "grades:read", "students:read", "reports:read"],
-    "hod": ["courses:write", "grades:read", "timetable:write", "students:read"],
-    "registrar": ["students:write", "courses:write", "reports:write"],
+    
+    # Student - can read own data, register courses
+    "student": [
+        "courses:read", "grades:read", "finance:read", "profile:read", "profile:write",
+        "enroll:write", "enroll:read", "timetable:read", "library:read",
+        "transcript:read", "certificates:read", "attendance:read"
+    ],
+    
+    # Lecturer - can manage grades, attendance, view courses
+    "lecturer": [
+        "courses:read", "courses:write",
+        "grades:read", "grades:write", "grades:write:ca", "grades:write:exam",
+        "attendance:read", "attendance:write",
+        "timetable:read", "timetable:write",
+        "students:read", "students:read:own",
+        "courses:write:add", "courses:write:remove"
+    ],
+    
+    # HOD (Head of Department) - department management
+    "hod": [
+        "courses:read", "courses:write", "courses:write:add", "courses:write:remove", "courses:write:edit",
+        "grades:read", "grades:write",
+        "timetable:read", "timetable:write",
+        "students:read", "students:read:department",
+        "reports:read", "reports:write",
+        "staff:read", "staff:write"
+    ],
+    
+    # Dean - faculty management
+    "dean": [
+        "courses:read", "courses:write",
+        "grades:read", "grades:write",
+        "students:read", "students:read:faculty",
+        "reports:read", "reports:write",
+        "staff:read", "staff:write",
+        "curriculum:read", "curriculum:write"
+    ],
+    
+    # Finance Officer - financial operations
+    "finance_officer": [
+        "finance:read", "finance:write", "finance:write:add", "finance:write:edit",
+        "students:read", "students:read:finance",
+        "invoices:write", "invoices:write:add", "invoices:write:edit",
+        "payments:read", "payments:write",
+        "scholarships:read", "scholarships:write",
+        "reports:read", "reports:write"
+    ],
+    
+    # Registrar - student records
+    "registrar": [
+        "students:read", "students:write", "students:write:add", "students:write:edit",
+        "students:write:status",
+        "courses:read", "courses:write",
+        "reports:read", "reports:write",
+        "transcript:write", "certificates:write",
+        "clearance:write", "clearance:write:department", "clearance:write:final",
+        "admission:read", "admission:write"
+    ],
+    
+    # SIWES Coordinator
+    "siwes_coordinator": [
+        "siwes:read", "siwes:write", "siwes:write:add", "siwes:write:edit",
+        "students:read", "companies:read", "companies:write"
+    ],
+    
+    # Exam Officer
+    "exam_officer": [
+        "exam:read", "exam:write", "exam:write:add", "exam:write:edit",
+        "venues:read", "venues:write",
+        "invigilators:read", "invigilators:write"
+    ],
+    
+    # Library Officer
+    "librarian": [
+        "library:read", "library:write", "library:write:add", "library:write:edit",
+        "books:read", "books:write", "books:write:add", "books:write:edit",
+        "circulation:read", "circulation:write"
+    ],
+    
+    # Alumni Officer
+    "alumni_officer": [
+        "alumni:read", "alumni:write", "alumni:write:add",
+        "students:read", "reports:read"
+    ],
 }
 
 
+# Permission helper functions
 def check_permission(role: str, permission: str) -> bool:
+    """Check if role has specific permission"""
     perms = ROLE_PERMISSIONS.get(role, [])
     return "*" in perms or permission in perms
+
+
+def check_permission_with_owner(role: str, permission: str, user_id: str, resource_owner_id: str) -> bool:
+    """Check permission with owner check (for own records)"""
+    if check_permission(role, permission):
+        return True
+    # Check for own record permission
+    if check_permission(role, f"{permission}:own") and user_id == resource_owner_id:
+        return True
+    return False
+
+
+def can_read(role: str, resource: str) -> bool:
+    """Check if role can read a resource"""
+    return check_permission(role, f"{resource}:read") or check_permission(role, f"{resource}:write")
+
+
+def can_write(role: str, resource: str) -> bool:
+    """Check if role can write/edit a resource"""
+    return check_permission(role, f"{resource}:write")
+
+
+def can_add(role: str, resource: str) -> bool:
+    """Check if role can add new resource"""
+    return check_permission(role, f"{resource}:write:add") or check_permission(role, f"{resource}:write")
+
+
+def can_delete(role: str, resource: str) -> bool:
+    """Check if role can delete a resource (admin only)"""
+    return check_permission(role, f"{resource}:write:delete") or "*" in ROLE_PERMISSIONS.get(role, [])
 
 
 def get_user_from_token(authorization: str = None) -> Optional[dict]:
