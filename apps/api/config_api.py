@@ -343,7 +343,9 @@ def get_system_info(request):
 # ============= AUTHENTICATION ROUTES =============
 from authentication import (
     LoginRequest, RegisterRequest, UserResponse, TokenResponse,
-    create_token, get_user_from_token, DEMO_USERS, UserRole, ROLE_PERMISSIONS
+    create_token, get_user_from_token, DEMO_USERS, UserRole, ROLE_PERMISSIONS,
+    NIGERIAN_STATES, NIGERIAN_LOCAL_GOVERNMENTS, NIGERIAN_COUNTRIES,
+    Gender, MaritalStatus, Nationality
 )
 
 
@@ -439,6 +441,49 @@ def get_me(request):
 def get_roles(request):
     """Get available roles"""
     return {"roles": [{"id": r.value, "name": r.name.replace("_", " ").title()} for r in UserRole]}
+
+
+# ============= NIGERIAN LOCATION DATA =============
+@api.get("/auth/nigeria/states")
+def get_nigerian_states(request):
+    """Get all Nigerian states"""
+    return {
+        "states": [
+            {"id": i+1, "name": state, "code": state[:3].upper()} 
+            for i, state in enumerate(NIGERIAN_STATES)
+        ]
+    }
+
+
+@api.get("/auth/nigeria/lgas")
+def get_local_governments(request, state: str = None):
+    """Get Local Government Areas by state"""
+    if state:
+        lgas = NIGERIAN_LOCAL_GOVERNMENTS.get(state, [])
+        return {"state": state, "lgas": lgas}
+    # Return all LGAs grouped by state
+    return {"states": NIGERIAN_LOCAL_GOVERNMENTS}
+
+
+@api.get("/auth/nigeria/countries")
+def get_countries(request):
+    """Get list of countries"""
+    return {"countries": [{"id": i+1, "name": c} for i, c in enumerate(NIGERIAN_COUNTRIES)]}
+
+
+# ============= STUDENT PROFILE OPTIONS =============
+@api.get("/auth/profile/options")
+def get_profile_options(request):
+    """Get available options for student profile registration"""
+    return {
+        "genders": [{"id": g.value, "name": g.value} for g in Gender],
+        "marital_statuses": [{"id": m.value, "name": m.value} for m in MaritalStatus],
+        "nationalities": [{"id": n.value, "name": n.value} for n in Nationality],
+        "blood_groups": ["A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"],
+        "genotypes": ["AA", "AS", "SS", "AC"],
+        "religions": ["Christianity", "Islam", "Hinduism", "Others", "None"],
+        "relationships": ["Father", "Mother", "Guardian", "Sibling", "Spouse", "Relative", "Friend"],
+    }
 
 
 @api.get("/auth/permissions/{role}")
