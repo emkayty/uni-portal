@@ -194,9 +194,28 @@ def get_system_config(request,
     - system: university or polytechnic
     - name: university name (optional)
     """
-    # Override with environment if available
-    env_style = os.environ.get("ACADEMIC_STYLE")
-    env_system = os.environ.get("SYSTEM_TYPE")
+    """Get system configuration based on style and type."""
+    university_name = name or os.environ.get("UNIVERSITY_NAME", "University of Nigeria")
+    short_name = os.environ.get("UNIVERSITY_SHORT", "UNN")
+    grading = get_grading_config(system.value, style.value)
+    structure = get_programme_structure(system.value, style.value)
+    features = {"caps_enabled": True, "jamb_required": True, "hostel_enabled": True, "scholarship_enabled": True, "siwes_enabled": True, "thesis_enabled": True}
+    classifications = {"first_class": "CGPA >= 4.5", "second_class_upper": "CGPA >= 3.5", "second_class_lower": "CGPA >= 2.5", "third_class": "CGPA >= 2.0"}
+    return SystemConfigResponse(system_type=system.value, academic_style=style.value, university_name=university_name, short_name=short_name, grading_scale=grading, programme_structure=structure, features=features, degree_classifications=classifications)
+@api.get("/")
+def get_root(request):
+    """Root endpoint - returns system info"""
+    return {
+        "message": "University Portal API",
+        "version": "1.0.0",
+        "docs": "/docs",
+        "endpoints": {
+            "config": "/api/config",
+            "login": "/api/auth/login",
+            "countries": "/api/auth/nigeria/countries",
+            "states": "/api/auth/nigeria/states",
+        }
+    }
     
     if env_style:
         style = AcademicStyleResponse(env_style)

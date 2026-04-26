@@ -23,5 +23,6 @@ api.add_router("/messaging", messaging_router)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', api.urls),
+    path('', api.urls),  # Root goes to API
+    path('api/', api.urls),  # /api/ also works
 ]
