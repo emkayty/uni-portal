@@ -352,11 +352,44 @@ from authentication import (
 @api.post("/auth/login", response=TokenResponse)
 def login(request, data: LoginRequest):
     """Authenticate user and return JWT token"""
+    # Check demo users first (for backward compatibility)
     user = DEMO_USERS.get(data.email.lower())
     
     if not user or user["password"] != data.password:
+        # Check database user
+        try:
+            from students.models import User as DBUser
+            db_user = DBUser.objects.filter(email=data.email.lower()).first()
+            if db_user and db_user.check_password(data.password):
+                user_data = {
+                    "id": str(db_user.id),
+                    "email": db_user.email,
+                    "role": db_user.user_type,
+                    "first_name": db_user.first_name or "Admin",
+                    "last_name": db_user.last_name or "User",
+                    "student_id": str(db_user.id)
+                }
+                token, expires = create_token(user_data)
+                return TokenResponse(
+                    access_token=token,
+                    token_type="bearer",
+                    expires_in=24 * 3600,
+                    user=UserResponse(
+                        id=str(db_user.id),
+                        email=db_user.email,
+                        first_name=db_user.first_name or "Admin",
+                        last_name=db_user.last_name or "User",
+                        role=db_user.user_type,
+                        student_id=str(db_user.id),
+                        is_active=db_user.is_active
+                    )
+                )
+        except Exception:
+            pass
+        
         return {"error": "Invalid credentials"}
     
+    # Demo user authentication
     user_data = {
         "id": user["id"],
         "email": data.email.lower(),

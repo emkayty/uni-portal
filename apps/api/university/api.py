@@ -20,9 +20,9 @@ class UniversitySchema(BaseModel):
     code: str
     academic_system: str
     system_type: str
-    email: str
-    phone: str
-    address: str
+    email: str = ""
+    phone: str = ""
+    address: str = ""
     nuc_accredited: bool = True
     tetfund_qualified: bool = True
     
@@ -151,13 +151,25 @@ def create_university(request, data: UniversitySchema):
         code=data.code,
         academic_system=data.academic_system,
         system_type=data.system_type,
-        email=data.email,
-        phone=data.phone,
-        address=data.address,
+        email=data.email or "",
+        phone=data.phone or "",
+        address=data.address or "",
         nuc_accredited=data.nuc_accredited,
         tetfund_qualified=data.tetfund_qualified,
     )
-    return uni
+    return {
+        "id": str(uni.id),
+        "name": uni.name,
+        "short_name": uni.short_name,
+        "code": uni.code,
+        "academic_system": uni.academic_system,
+        "system_type": uni.system_type,
+        "email": uni.email,
+        "phone": uni.phone,
+        "address": uni.address,
+        "nuc_accredited": uni.nuc_accredited,
+        "tetfund_qualified": uni.tetfund_qualified,
+    }
 
 
 @router.get("/universities/{uni_id}")
