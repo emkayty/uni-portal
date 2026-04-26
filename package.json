@@ -7,7 +7,16 @@
     "apps/mobile"
   ],
   "scripts": {
+    "dev": "npm run dev:all",
+    "dev:all": "npm run dev:api & npm run dev:web && fg",
+    "dev:api": "cd apps/api && python3 manage.py runserver 8001",
     "dev:web": "cd apps/web && npm run dev",
-    "dev:mobile": "cd apps/mobile && npm start"
+    "dev:mobile": "cd apps/mobile && npm start",
+    "setup": "npm install && cd apps/api && pip install -r requirements.txt",
+    "test": "echo 'Testing backend...' && curl -s http://localhost:8001/api/config | python3 -c \"import sys,json; print('✓ Backend OK' if json.load(sys.stdin).get('university_name') else '✗ Backend Failed')\" && curl -s -o /dev/null -w 'Frontend: %{http_code}\\n' http://localhost:3000"
+  },
+  "engines": {
+    "node": ">=18",
+    "python": ">=3.10"
   }
 }
